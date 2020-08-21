@@ -44,7 +44,7 @@ def print_words(filename):
     return
 
 
-def print_top(filename):
+def print_top(fname):
     """Prints the top count listing for the given file."""
     # Your code here
     return
