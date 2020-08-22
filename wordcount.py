@@ -25,29 +25,53 @@ should return a dictionary with words as keys, and their counts as values.
 
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Bethsheba Zebata/goddesscoder"
 
 import sys
 
 
 def create_word_dict(filename):
     """Returns a word/count dict for the given file."""
-    # Your code here
-    return
+    word_dict = {}
+    with open(filename, 'r') as f:
+        words = (word for line in f.readlines()
+                 for word in line.lower().split())
+        for word in words:
+            if word not in word_dict:
+                word_dict[word] = 1
+            else:
+                word_dict[word] = word_dict[word] + 1
+    print(word_dict)
 
 
 def print_words(filename):
     """Prints one per line '<word> : <count>', sorted
     by word for the given file.
     """
-    # Your code here
-    return
+    create_word_dict(filename)
+    # word_dict = create_word_dict(filename)
+    # return word_dict
+    # for words in word_dict:
+    #     print(words.sort())
+    # return words
+
+    # counterDict = {}
+    # with open(filename, 'r') as f:
+    #     for line in f:
+    #         words = line.lower().split()
+    #         for word in words:
+    #             if word not in counterDict:
+    #                 counterDict[word] = 1
+    #             else:
+    #                 counterDict[word] = counterDict[word] + 1
+    # print(counterDict)
+    # return counterDict
 
 
-def print_top(fname):
+def print_top(filename):
     """Prints the top count listing for the given file."""
-    # Your code here
-    return
+    create_word_dict(filename)
+    # return
 
 
 # This basic command line argument parsing code is provided and calls
