@@ -25,7 +25,7 @@ should return a dictionary with words as keys, and their counts as values.
 
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
-__author__ = "Bethsheba Zebata/goddesscoder"
+__author__ = "Bethsheba Zebata/goddesscoder, helped by Mike Boring"
 
 import sys
 
@@ -41,37 +41,26 @@ def create_word_dict(filename):
                 word_dict[word] = 1
             else:
                 word_dict[word] = word_dict[word] + 1
-    print(word_dict)
+    return word_dict
 
 
 def print_words(filename):
     """Prints one per line '<word> : <count>', sorted
     by word for the given file.
     """
-    create_word_dict(filename)
-    # word_dict = create_word_dict(filename)
-    # return word_dict
-    # for words in word_dict:
-    #     print(words.sort())
-    # return words
-
-    # counterDict = {}
-    # with open(filename, 'r') as f:
-    #     for line in f:
-    #         words = line.lower().split()
-    #         for word in words:
-    #             if word not in counterDict:
-    #                 counterDict[word] = 1
-    #             else:
-    #                 counterDict[word] = counterDict[word] + 1
-    # print(counterDict)
-    # return counterDict
+    new_dict = create_word_dict(filename)
+    for key, value in sorted(new_dict.items()):
+        print(key, ":", value)
+    return
 
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
-    create_word_dict(filename)
-    # return
+    d = create_word_dict(filename)
+    sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    for key, value in sorted_d[:20]:
+        print(key, ":", value)
+    return
 
 
 # This basic command line argument parsing code is provided and calls
